@@ -1,3 +1,179 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url(./reset.css);
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+@media (min-width: 400px) {
+  .App {
+    width: 390px;
+    height: 860px;
+  }
+}
+
+@media (max-width: 400px) {
+  .App {
+    width: 90vh;
+    height: auto;
+  }
+}
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 11, 0.2) 0px 7px 29px 0px;
+}
+
+/* .App {
+} */
+
+/* HEAD */
+.head_title {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+  padding-left: 22px;
+  height: 62px;
+}
+
+/* CALENDAR */
+.Calendar {
+  padding: 0px 20px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.calendar_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.prev_month,
+.next_month {
+  cursor: pointer;
+}
+
+.weekdays {
+  display: flex;
+}
+
+.weekdays div {
+  flex: 1;
   text-align: center;
+  padding: 10px;
+}
+
+.days_grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 50px;
+}
+
+.days_grid div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.days_grid div span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev_date,
+.next_date {
+  color: #ccc;
+}
+
+.calendar_dot {
+  font-size: 15px;
+}
+
+.calendar_dot_mark_done {
+  color: silver;
+}
+
+.calendar_dot_mark_todo {
+  color: pink;
+}
+
+.calendar_dot_hide {
+  visibility: hidden;
+}
+
+.today {
+  background-color: skyblue;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+}
+
+/* TODO */
+
+.Todo {
+  height: 600px;
+  border-bottom: 2px solid #cacaca;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+.todo_head {
+  display: flex;
+}
+
+.todo_head_title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.todo_head_sub {
+  font-size: 14px;
+  position: relative;
+  top: 3px;
+  padding-left: 20px;
+}
+
+.todo_head_icon {
+  position: relative;
+  left: 70%;
+  top: 19px;
+}
+
+.todo_timeline {
+  display: flex;
+  height: 450px;
+  /* border: 10px solid #333; */
+  border-radius: 5px;
+}
+
+.todo_timeline_line {
+  height: 450px;
+  border-radius: 10px;
+  border: 7px solid #333;
+}
+
+.todo_timeline_card {
+  border: 1px solid #cacaca;
+  width: 308px;
+  height: 72px;
+}
+
+/* ICON */
+.Icon {
+  display: flex;
+  height: 10%;
 }
