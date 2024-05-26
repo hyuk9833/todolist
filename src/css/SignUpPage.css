@@ -1,12 +1,12 @@
 /* SignUp */
 
-.SignUp .signup_logo{
-  margin-top:80px;
-  margin-left:20px;
+.SignUp .signup_logo {
+  margin-top: 80px;
+  margin-left: 20px;
   margin-bottom: 0px;
 }
 
-.SignUp .signup_title h4{
+.SignUp .signup_title h4 {
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
@@ -14,23 +14,22 @@
   margin-top: 8px;
 }
 
-.SignUp .signup_info{
+.SignUp .signup_info {
+  width: 100%;
   margin-top: 59px;
-  margin-left: 47px;
+  margin-left: 40px;
   margin-right: 46px;
   margin-bottom: 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  
 }
 
-.SignUp .signup_button{
+.SignUp .signup_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:77px;
+  margin-top: 77px;
   margin-left: 34px;
   margin-right: 26px;
 }

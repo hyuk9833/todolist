@@ -10,7 +10,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Detail from "./pages/Detail";
 
-import Setting from "./pages/Search";
+import Setting from "./pages/Settings/Setting";
 
 import { Routes, Route } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/SignUpPage.css";
 import MyButton from "../components/MyButton";
 import MyInput from "../components/Sign/MyInput";
@@ -10,9 +10,15 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const [checkPw, setCheckPw] = useState("");
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      localStorage.setItem("user", "{}");
+    }
+  }, []);
 
+  const navigate = useNavigate();
   const handleSignUp = () => {
+    const userList = JSON.parse(localStorage.getItem("user"));
     if (!email || !password || !checkPw) {
       alert("모든 항목을 입력하세요.");
       return;
@@ -21,10 +27,10 @@ const SignUpPage = () => {
       alert("이메일은 15자 이상, 비밀번호는 5자 이상 입력하세요.");
       return;
     }
-    if (!localStorage.getItem(JSON.stringify(email))) {
+    if (!userList[email]) {
       if (password === checkPw) {
-        const user = { email, password };
-        localStorage.setItem(JSON.stringify(email), JSON.stringify(user));
+        userList[email] = password;
+        localStorage.setItem("user", JSON.stringify(userList));
         alert("회원가입 성공! 로그인 화면으로 이동합니다.");
         navigate("/SignIn");
       } else {

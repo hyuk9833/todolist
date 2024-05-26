@@ -2,7 +2,7 @@
 .Calendar {
   padding: 0px 20px;
   border-bottom: 1px solid #dcdcdc;
-  height: 353px;
+  padding-bottom: 20px;
 }
 
 .calendar_header {
@@ -56,6 +56,10 @@
   color: #ccc;
 }
 
+.curr_date:hover {
+  cursor: pointer;
+}
+
 .calendar_dot {
   font-size: 15px;
 }
@@ -76,7 +80,6 @@
   background-color: skyblue;
   border-radius: 50%;
   color: #fff;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;

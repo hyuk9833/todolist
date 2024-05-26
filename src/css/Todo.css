@@ -1,12 +1,9 @@
 /* TODO */
 
 .Todo {
-  height: 369px;
-  border-bottom: 1px solid #cacaca;
+  flex: 1;
   padding-left: 40px;
   padding-right: 20px;
-  max-height: 787px;
-  /* overflow: hidden; */
 }
 
 .todo_head {

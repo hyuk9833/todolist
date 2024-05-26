@@ -17,11 +17,8 @@ const SignInPage = ({ onSignIn }) => {
     console.log(password);
 
     if (email && password) {
-      const storedUser = JSON.parse(
-        localStorage.getItem(JSON.stringify(email))
-      );
-      console.log(storedUser);
-      if (storedUser.email === email && storedUser.password === password) {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (!!storedUser[email] && storedUser[email] === password) {
         onSignIn();
         alert("로그인 성공!");
         navigate("/home");

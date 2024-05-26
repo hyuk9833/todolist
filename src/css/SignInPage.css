@@ -1,11 +1,11 @@
 /* SignIn */
-.SignIn .signin_logo{
-  margin-top:80px;
-  margin-left:20px;
+.SignIn .signin_logo {
+  margin-top: 80px;
+  margin-left: 20px;
   margin-bottom: 0px;
 }
 
-.SignIn .signin_title h4{
+.SignIn .signin_title h4 {
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
@@ -13,47 +13,43 @@
   margin-top: 8px;
 }
 
-.singinWrapper{
+.singinWrapper {
   margin-bottom: 100px;
 }
 
-.SignIn .signin_info{
+.SignIn .signin_info {
+  width: 100%;
   margin-top: 99px;
   margin-bottom: 0px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+  margin-left: 40px;
 }
 
-.SignIn .signin_info .signin_input_password input{
+.SignIn .signin_info .signin_input_password input {
   margin-bottom: 10px;
 }
 
-
-.SignIn .signup_container{
+.SignIn .signup_container {
   display: flex;
   justify-content: center;
   /* justify-content: space-between; */
   align-items: center;
-  padding-top:0px;
+  padding-top: 0px;
   padding-bottom: 0px;
-  margin-left: 46px;
   margin-right: 47px;
   margin-top: 12px;
   margin-bottom: 0px;
-  
 }
 
-.SignIn .signup_container .signup_text{
+.SignIn .signup_container .signup_text {
   font-size: 14px;
   line-height: 20px;
-  color:#666666;
+  color: #666666;
 }
 
-.SignIn .signup_container .signup_button{
-  border:none;
+.SignIn .signup_container .signup_button {
+  border: none;
   background-color: white;
   font-size: 14px;
   color: #666666;
@@ -61,11 +57,11 @@
   cursor: pointer;
 }
 
-.SignIn .signin_button{
+.SignIn .signin_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:133px;
+  margin-top: 133px;
   margin-left: 37px;
   margin-right: 36px;
 }

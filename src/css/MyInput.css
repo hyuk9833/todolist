@@ -1,26 +1,31 @@
 /* MyInput */
 
-.input_box_component input{
+.input_box_component {
+  width: 100%;
+}
+
+.input_box_component input {
   font-size: 16px;
-  background-color: #FFEEEE;
+  width: 60%;
+  background-color: #ffeeee;
   padding-left: 24px;
-  padding-right: 74px;
-  padding-top:20px;
+  padding-right: 24px;
+  padding-top: 20px;
   padding-bottom: 20px;
-  border:none;
+  border: none;
   border-radius: 8px;
   margin-bottom: 40px;
 }
 
-.input_box_component p{
+.input_box_component p {
   font-size: 12px;
   font-weight: bold;
-  color: #666666;
+  color: #141212;
   line-height: 20px;
   margin-bottom: 8px;
 }
 
-.input_box_component input::placeholder{
+.input_box_component input::placeholder {
   color: #888888;
   font-size: 16px;
   line-height: 20px;

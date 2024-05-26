@@ -14,10 +14,16 @@ const isToday = (date) => {
 };
 
 // 달력의 각 날짜를 표시하는 컴포넌트입니다. 날짜, 이전 달 여부, 다음 달 여부, 표시할 마크(완료, 할 일)를 props로 받습니다.
-const CalendarDate = ({ date, isPrevMonth, isNextMonth, mark }) => {
+const CalendarDate = ({
+  date,
+  isPrevMonth,
+  isNextMonth,
+  mark,
+  setCurrentDate,
+}) => {
   // 입력된 날짜가 오늘인지 확인합니다.
   const today = isToday(date);
-  let dateClassName = "";
+  let dateClassName = "curr_date";
   // 이전 달의 날짜인 경우 클래스 이름에 prev_date를 추가합니다.
   if (isPrevMonth) dateClassName += " prev_date";
   // 다음 달의 날짜인 경우 클래스 이름에 next_date를 추가합니다.
@@ -31,7 +37,7 @@ const CalendarDate = ({ date, isPrevMonth, isNextMonth, mark }) => {
   if (dotClassName === "calendar_dot") dotClassName += " calendar_dot_hide";
 
   return (
-    <div className={dateClassName}>
+    <div className={dateClassName} onClick={() => setCurrentDate(date)}>
       {/* // 날짜가 오늘인 경우 'today' 클래스를 추가합니다. */}
       <span className={today ? "today" : ""}>{date.getDate()}</span>
       {/* 마크에 따라 다른 스타일의 점을 표시합니다. */}
@@ -42,9 +48,9 @@ const CalendarDate = ({ date, isPrevMonth, isNextMonth, mark }) => {
   );
 };
 
-const Calendar = () => {
+const Calendar = ({ currentDate, setCurrentDate }) => {
   // 현재 선택된 날짜 상태를 관리합니다.
-  const [currentDate, setCurrentDate] = useState(new Date());
+
   // 달력에 표시될 날짜들의 배열 상태를 관리합니다.
   const [dates, setDates] = useState([]);
 
@@ -124,64 +130,57 @@ const Calendar = () => {
     return `${year}년 ${month}월`;
   };
 
+  {
+    /* 달력 부분입니다. 달력의 헤더, 요일 표시, 날짜들을 포함합니다. */
+  }
   return (
-    <div>
-      {/* 달력 부분입니다. 달력의 헤더, 요일 표시, 날짜들을 포함합니다. */}
-      <div className="Calendar">
-        <div className="calendar_header">
-          {/* 이전 달과 다음 달로 이동하는 버튼을 포함합니다. */}
-          <span
-            className="prev_month"
-            onClick={() =>
-              setCurrentDate(
-                new Date(
-                  currentDate.getFullYear(),
-                  currentDate.getMonth() - 1,
-                  1
-                )
-              )
-            }
-          >
-            &#10094;
-          </span>
-          <span className="year_month">{formatYearMonth(currentDate)}</span>
-          <span
-            className="next_month"
-            onClick={() =>
-              setCurrentDate(
-                new Date(
-                  currentDate.getFullYear(),
-                  currentDate.getMonth() + 1,
-                  1
-                )
-              )
-            }
-          >
-            &#10095;
-          </span>
-        </div>
-        {/* 요일을 표시하는 부분입니다. 일요일부터 토요일까지 표시합니다. */}
-        <div className="weekdays">
-          <div>일</div>
-          <div>월</div>
-          <div>화</div>
-          <div>수</div>
-          <div>목</div>
-          <div>금</div>
-          <div>토</div>
-        </div>
-        {/* 달력의 날짜들을 그리드 형식으로 표시합니다. */}
-        <div className="days_grid">
-          {dates.map((dateObj, index) => (
-            <CalendarDate
-              key={index}
-              date={dateObj.date}
-              isPrevMonth={dateObj.isPrevMonth}
-              isNextMonth={dateObj.isNextMonth}
-              mark={dateObj.mark}
-            />
-          ))}
-        </div>
+    <div className="Calendar">
+      <div className="calendar_header">
+        {/* 이전 달과 다음 달로 이동하는 버튼을 포함합니다. */}
+        <span
+          className="prev_month"
+          onClick={() =>
+            setCurrentDate(
+              new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
+            )
+          }
+        >
+          &#10094;
+        </span>
+        <span className="year_month">{formatYearMonth(currentDate)}</span>
+        <span
+          className="next_month"
+          onClick={() =>
+            setCurrentDate(
+              new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
+            )
+          }
+        >
+          &#10095;
+        </span>
+      </div>
+      {/* 요일을 표시하는 부분입니다. 일요일부터 토요일까지 표시합니다. */}
+      <div className="weekdays">
+        <div>일</div>
+        <div>월</div>
+        <div>화</div>
+        <div>수</div>
+        <div>목</div>
+        <div>금</div>
+        <div>토</div>
+      </div>
+      {/* 달력의 날짜들을 그리드 형식으로 표시합니다. */}
+      <div className="days_grid">
+        {dates.map((dateObj, index) => (
+          <CalendarDate
+            key={index}
+            date={dateObj.date}
+            isPrevMonth={dateObj.isPrevMonth}
+            isNextMonth={dateObj.isNextMonth}
+            mark={dateObj.mark}
+            setCurrentDate={setCurrentDate}
+          />
+        ))}
       </div>
     </div>
   );
